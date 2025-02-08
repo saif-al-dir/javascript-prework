@@ -1,9 +1,11 @@
+function playGame(playerInput) {
 
-let randomNumber = Math.floor(Math.random() * 3 + 1);
-let computerMove = getMoveName(randomNumber);
-let playerInput = 2; 
-let playerMove = getMoveName(playerInput);
+    let randomNumber = Math.floor(Math.random() * 3 + 1);
+    let computerMove = getMoveName(randomNumber);
+    let playerMove = getMoveName(playerInput);
 
+    displayResult(computerMove, playerMove);
+}
 
 function printMessage(msg){
 	let div = document.createElement('div');
@@ -25,7 +27,7 @@ function getMoveName(argMoveId) {
 }
 // Function show result
 function displayResult(argComputerMove, argPlayerMove) {
-    console.log('moves:', argComputerMove, argPlayerMove); // Debugging
+    console.log('moves:', argComputerMove, argPlayerMove);
     if (argComputerMove === argPlayerMove) {
         printMessage('Remis! Obaj wybraliście ' + argComputerMove);
     } else if (
@@ -39,5 +41,14 @@ function displayResult(argComputerMove, argPlayerMove) {
     }
 }
 
-// Wywołanie funkcji displayResult z odpowiednimi argumentami
-displayResult(computerMove, playerMove);
+document.getElementById('play-rock').addEventListener('click', function() {
+    playGame(1); // Kamień
+});
+
+document.getElementById('play-paper').addEventListener('click', function() {
+    playGame(2); // Papier
+});
+
+document.getElementById('play-scissors').addEventListener('click', function() {
+    playGame(3); // Nożyce
+});
