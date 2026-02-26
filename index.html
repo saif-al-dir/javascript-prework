@@ -1,20 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Kamień, papier, nożyce</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamień, papier, nożyce</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-	<div class="container">
-		<div id="buttons">
-			<button id="play-rock" type="button">Kamień</button>
-			<button id="play-paper" type="button">Papier</button>
-			<button id="play-scissors" type="button">Nożyce</button>
-		</div>
-		<div id="messages"></div>
-	</div>
-	<script src="js/functions.js"></script>
-	<script src="js/script.js"></script>
+    <div class="game-container">
+        <header class="game-header">
+            <h1><i class="fas fa-hand-rock"></i> Kamień, Papier, Nożyce <i class="fas fa-hand-paper"></i></h1>
+        </header>
+        
+        <main class="game-main">
+            <section class="score-section">
+                <div class="score-board">
+                    <div class="score-item">
+                        <div>Gracz</div>
+                        <div class="score-value" id="player-score">0</div>
+                    </div>
+                    <div class="score-item">
+                        <div>Remisy</div>
+                        <div class="score-value" id="draw-score">0</div>
+                    </div>
+                    <div class="score-item">
+                        <div>Komputer</div>
+                        <div class="score-value" id="computer-score">0</div>
+                    </div>
+                </div>
+            </section>
+			
+			<section class="result-section">
+				<div class="choices-display" id="choices-display" style="display: none;">
+					<div class="choice-box">
+						<h3>Twój wybór</h3>
+						<div class="choice-icon" id="player-choice-icon">
+							<i class="fas fa-question"></i>
+						</div>
+						<div class="choice-name" id="player-choice-name">?</div>
+					</div>
+					
+					<div class="vs-separator">VS</div>
+					
+					<div class="choice-box">
+						<h3>Wybór komputera</h3>
+						<div class="choice-icon" id="computer-choice-icon">
+							<i class="fas fa-question"></i>
+						</div>
+						<div class="choice-name" id="computer-choice-name">?</div>
+					</div>
+				</div>
+				
+				<div id="messages"></div>
+			</section>
+            
+            <section class="choices-section">
+                <div id="buttons">
+                    <button id="play-rock" type="button" data-choice="rock">
+                        <i class="fas fa-hand-rock"></i>
+                        <span>Kamień</span>
+                    </button>
+                    <button id="play-paper" type="button" data-choice="paper">
+                        <i class="fas fa-hand-paper"></i>
+                        <span>Papier</span>
+                    </button>
+                    <button id="play-scissors" type="button" data-choice="scissors">
+                        <i class="fas fa-hand-scissors"></i>
+                        <span>Nożyce</span>
+                    </button>
+                </div>
+            </section>
+            
+        </main>
+        
+        <footer class="game-footer">
+            <button class="reset-btn" id="reset-game">
+                <i class="fas fa-redo"></i> Resetuj grę
+            </button>
+        </footer>
+    </div>
+    
+    <script src="js/functions.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
